@@ -14,7 +14,7 @@ const BasicChart = ({ labels, dataArray }: BasicChartProps) => {
       labels: labels,
       datasets: [
         {
-          label: "Sales",
+          label: "Usage",
           data: dataArray,
           backgroundColor: [
             "rgba(255, 159, 64, 0.2)",
