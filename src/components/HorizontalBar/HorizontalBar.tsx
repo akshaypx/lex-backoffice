@@ -70,7 +70,7 @@ const HorizontalBar = ({
 
     setChartData(data);
     setChartOptions(options);
-  }, [dataArray, labels]);
+  }, [dataArray, dataSetName, labels]);
   return (
     <div className="card">
       <Chart type="bar" data={chartData} options={chartOptions} />

@@ -1,11 +1,11 @@
 import { Chart } from "primereact/chart";
 import React, { useEffect, useState } from "react";
 
-interface dataSet {
-  data: number[];
-  backgroundColor: string[];
-  hoverBackgroundColor: string[];
-}
+// interface dataSet {
+//   data: number[];
+//   backgroundColor: string[];
+//   hoverBackgroundColor: string[];
+// }
 
 interface PieChartProps {
   labels: string[];
@@ -48,7 +48,7 @@ const PieChat = ({ labels, dataArray }: PieChartProps) => {
 
     setChartData(data);
     setChartOptions(options);
-  }, []);
+  }, [dataArray, labels]);
   return (
     <div className="card flex justify-content-center">
       <Chart
