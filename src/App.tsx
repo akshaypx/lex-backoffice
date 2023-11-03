@@ -1,10 +1,19 @@
+import { useState } from "react";
 import "./App.css";
-import BotForm from "./pages/BotForm/BotForm";
+import Navigation from "./components/Navigation/Navigation";
+import Header from "./components/Header/Header";
 
-function App() {
+interface AppProps {
+  children: React.ReactNode;
+}
+
+function App({ children }: AppProps) {
+  const [visible, setVisible] = useState(false);
   return (
-    <div className="App">
-      <BotForm />
+    <div className="parentContainer">
+      <Header visible={visible} setVisible={setVisible} />
+      <Navigation visible={visible} setVisible={setVisible} />
+      <div className="App">{children}</div>
     </div>
   );
 }

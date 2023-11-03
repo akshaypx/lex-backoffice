@@ -1,0 +1,32 @@
+.container {
+  height: 80px;
+  width: 100%;
+  background-color: #12294b;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+.leftContainer {
+  display: flex;
+}
+.rightContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  margin-left: 20px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+}

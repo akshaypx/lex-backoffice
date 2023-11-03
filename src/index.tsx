@@ -7,15 +7,68 @@ import "primeicons/primeicons.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./pages/BotForm/Dashboard";
+import Questions from "./pages/Questions/Questions";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <App>
+        <Dashboard />
+      </App>
+    ),
+  },
+  {
+    path: "/questions",
+    element: (
+      <App>
+        <Questions />
+      </App>
+    ),
+  },
+  {
+    path: "/configurations",
+    element: (
+      <App>
+        <h1>Page Coming Soon !</h1>
+      </App>
+    ),
+  },
+  {
+    path: "/user-management",
+    element: (
+      <App>
+        <h1>Page Coming Soon !</h1>
+      </App>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <App>
+        <div
+          style={{
+            margin: "20px",
+          }}
+        >
+          <h2>Oops, Page Not Found</h2>
+        </div>
+      </App>
+    ),
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <PrimeReactProvider>
       <Provider store={store}>
-        <App />
+        <RouterProvider router={router} />
       </Provider>
     </PrimeReactProvider>
   </React.StrictMode>

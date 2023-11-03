@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   margin: 2%;
-}
-.container {
   width: 100%;
 }
+// .container {
+//   //   width: 100%;
+// }
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -20,8 +21,8 @@
     gap: 10px;
   }
 }
-.card {
-}
+// .card {
+// }
 .dashCard {
   background-color: white;
   height: fit-content;
@@ -29,7 +30,7 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 10px;
   p {
@@ -65,12 +66,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .question {
-  width: 700px;
+  //   width: 700px;
   min-height: 100px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 5px;
 }
@@ -120,8 +122,8 @@
   -moz-border-radius-bottomleft: 0;
   border-radius: 20px;
   border-bottom-left-radius: 0;
-  max-width: fit-content;
-  max-width: 500px;
+  //   max-width: fit-content;
+  //   max-width: 500px;
   font-size: large;
   word-wrap: break-word;
 }
@@ -130,12 +132,12 @@
   word-wrap: break-word;
 }
 .row {
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 .bottom {
-  width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -149,9 +151,7 @@
   width: 700px;
   justify-content: center;
   align-items: center;
-  div {
-    width: 700px;
-  }
+
   i {
     margin-right: 5px;
     font-size: 1rem;
@@ -163,7 +163,7 @@
 .dialogRow {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin: 5px;
   .first {
@@ -172,4 +172,16 @@
   .second {
     width: 60%;
   }
+}
+.topRow {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+.headerButton {
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #3f73b6;
 }

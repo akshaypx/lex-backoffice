@@ -1,0 +1,179 @@
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  width: 100%;
+}
+.container {
+  width: 100%;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  .headerButtons {
+    display: flex;
+    gap: 10px;
+  }
+}
+// .card {
+// }
+.dashCard {
+  background-color: rgb(235, 235, 235);
+  height: fit-content;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  p {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    i {
+      font-size: small;
+    }
+  }
+}
+.chartCard {
+  background-color: white;
+  min-width: 300px;
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  p {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    i {
+      font-size: small;
+    }
+  }
+}
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.question {
+  width: 700px;
+  min-height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(108, 108, 255);
+  color: white;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 25px;
+  margin-right: 10px;
+}
+.center {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  // max-width: 500px;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+}
+.info {
+  padding: 2px;
+  margin: 0px;
+  font-size: small;
+  i {
+    font-weight: bold;
+  }
+}
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(108, 108, 255);
+  color: white;
+  min-height: 40px;
+  padding: 10px;
+  -webkit-border-radius: 20px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius: 20px;
+  -moz-border-radius-bottomleft: 0;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  max-width: fit-content;
+  max-width: 500px;
+  font-size: large;
+  word-wrap: break-word;
+}
+.questionText {
+  font-size: large;
+  word-wrap: break-word;
+}
+.row {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.inputText {
+  width: 80%;
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    margin-right: 5px;
+    font-size: 1rem;
+  }
+  p {
+    display: inline;
+  }
+}
+.dialogRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px;
+  .first {
+    width: 20%;
+  }
+  .second {
+    width: 60%;
+  }
+}
+.cardSpacing {
+  margin-bottom: 20px;
+  width: 100%;
+}

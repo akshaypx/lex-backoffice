@@ -1,7 +1,15 @@
+.parentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.sidebar {
+  margin-top: 20px;
+  margin-left: 20px;
+}
 .App {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
