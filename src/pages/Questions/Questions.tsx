@@ -12,6 +12,7 @@ import { Dialog } from "primereact/dialog";
 import PulseLoader from "react-spinners/PulseLoader";
 import SlotCard from "../../components/SlotCard/SlotCard";
 import { Card } from "primereact/card";
+import { RadioButton, RadioButtonChangeEvent } from "primereact/radiobutton";
 
 interface Language {
   name: string;
@@ -28,6 +29,8 @@ const Questions = () => {
     null
   );
 
+  const [ingredient, setIngredient] = useState<string>("");
+
   const languages: Language[] = [
     { name: "English", code: "EN" },
     { name: "Japanese", code: "JA" },
@@ -39,6 +42,8 @@ const Questions = () => {
     message: "",
     condition: "",
   });
+
+  let noOfOptions = [""];
 
   const [visible, setVisible] = useState<boolean>(false);
   const toast = useRef<Toast>(null);
@@ -145,6 +150,64 @@ const Questions = () => {
                 />
               </div>
               <div className={styles.dialogRow}>
+                <b className={styles.first}>Type of Answer</b>
+                {/* <InputTextarea
+                  className={styles.second}
+                  onChange={(e) =>
+                    setSlotValues({ ...slotValues, condition: e.target.value })
+                  }
+                /> */}
+                <div>
+                  <div
+                    className="flex flex-wrap gap-3"
+                    style={{ display: "flex", gap: 10 }}
+                  >
+                    <div className="flex align-items-center">
+                      <RadioButton
+                        inputId="ingredient1"
+                        name="plainText"
+                        value="PlainText"
+                        onChange={(e: RadioButtonChangeEvent) =>
+                          setIngredient(e.value)
+                        }
+                        checked={ingredient === "PlainText"}
+                      />
+                      <label htmlFor="ingredient1" className="ml-2">
+                        Plain Text
+                      </label>
+                    </div>
+                    <div className="flex align-items-center">
+                      <RadioButton
+                        inputId="ingredient2"
+                        name="card"
+                        value="Card"
+                        onChange={(e: RadioButtonChangeEvent) =>
+                          setIngredient(e.value)
+                        }
+                        checked={ingredient === "Card"}
+                      />
+                      <label htmlFor="ingredient2" className="ml-2">
+                        Card
+                      </label>
+                    </div>
+                    <div className="flex align-items-center">
+                      <RadioButton
+                        inputId="ingredient3"
+                        name="custom"
+                        value="Custom"
+                        onChange={(e: RadioButtonChangeEvent) =>
+                          setIngredient(e.value)
+                        }
+                        checked={ingredient === "Custom"}
+                      />
+                      <label htmlFor="ingredient3" className="ml-2">
+                        Custom
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.dialogRow}>
                 <b className={styles.first}>Message</b>
                 <InputTextarea
                   className={styles.second}
@@ -153,15 +216,24 @@ const Questions = () => {
                   }
                 />
               </div>
-              <div className={styles.dialogRow}>
-                <b className={styles.first}>Condition</b>
-                <InputTextarea
-                  className={styles.second}
-                  onChange={(e) =>
-                    setSlotValues({ ...slotValues, condition: e.target.value })
-                  }
-                />
-              </div>
+              {ingredient === "Card" && (
+                <>
+                  {noOfOptions.map((val: any, index: number) => (
+                    <div className={styles.dialogRow}>
+                      <b className={styles.first}>Option {index}</b>
+                      <InputText className={styles.second} />
+                    </div>
+                  ))}
+                  <Button
+                    label="+"
+                    style={{ marginLeft: "4px" }}
+                    onClick={() => {
+                      noOfOptions.push("");
+                      console.log("+");
+                    }}
+                  />
+                </>
+              )}
             </div>
           </Dialog>
           <div className={styles.container}>
