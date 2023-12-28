@@ -64,7 +64,9 @@ const Dashboard = () => {
                     />
                   </div>
                 )}
-                {loadingIntent === "succeeded" && utteranceAnalyticsData && (
+                {loadingIntent === "succeeded" &&
+                utteranceAnalyticsData?.utterances &&
+                utteranceAnalyticsData?.utterances.length > 0 ? (
                   <>
                     <div className={styles.chartCard}>
                       <b>Answers Distribution</b>
@@ -103,6 +105,8 @@ const Dashboard = () => {
                     />
                   </div> */}
                   </>
+                ) : (
+                  <div>No Data</div>
                 )}
               </div>
             </Card>
@@ -118,9 +122,8 @@ const Dashboard = () => {
                   </div>
                 )}
                 {loadingIntent === "succeeded" &&
-                  intentMetrics &&
-                  intentMetrics!.results &&
-                  intentMetrics!.results[0].metricsResults?.map((val, i) => (
+                intentMetrics?.results?.[0]?.metricsResults ? (
+                  intentMetrics.results[0].metricsResults.map((val, i) => (
                     <div className={styles.dashCard} key={i}>
                       <b>{val.name}</b>
                       <p>
@@ -128,7 +131,10 @@ const Dashboard = () => {
                         <i>({val.statistic})</i>
                       </p>
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <div>No data </div>
+                )}
               </div>
             </Card>
             <Card className={styles.cardSpacing} title="User Answer Metrics">
@@ -143,9 +149,8 @@ const Dashboard = () => {
                   </div>
                 )}
                 {loadingIntent === "succeeded" &&
-                  utteranceMetrics &&
-                  utteranceMetrics!.results &&
-                  utteranceMetrics!.results[0].metricsResults?.map((val, i) => (
+                utteranceMetrics?.results?.[0]?.metricsResults ? (
+                  utteranceMetrics.results[0].metricsResults.map((val, i) => (
                     <div className={styles.dashCard} key={i}>
                       <b>{val.name}</b>
                       <p>
@@ -153,7 +158,10 @@ const Dashboard = () => {
                         <i>({val.statistic})</i>
                       </p>
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <div>No data </div>
+                )}
               </div>
             </Card>
           </div>
