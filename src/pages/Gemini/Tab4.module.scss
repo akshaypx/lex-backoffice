@@ -1,0 +1,31 @@
+@import "../../colors.scss";
+
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 10px;
+}
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.inputarea {
+  flex: 1;
+}
+.actionsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.innerInput {
+  width: 48px;
+}
