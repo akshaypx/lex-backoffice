@@ -3,6 +3,7 @@ import styles from "./Navigation.module.scss";
 import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 
 interface NavigationProps {
   visible: boolean;
@@ -61,6 +62,19 @@ const Navigation = ({ visible, setVisible }: NavigationProps) => {
           label="User Management"
           onClick={() => {
             navigate("/user-management");
+            setVisible(false);
+          }}
+        />
+        <p>
+          <b>POCs</b>
+        </p>
+
+        <Button
+          className={styles.button}
+          icon={<Sparkles />}
+          label="Gemini"
+          onClick={() => {
+            navigate("/gemini");
             setVisible(false);
           }}
         />

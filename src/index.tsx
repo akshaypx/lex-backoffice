@@ -8,8 +8,10 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./pages/BotForm/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Questions from "./pages/Questions/Questions";
+import Gemini from "./pages/Gemini/Gemini";
+import MainPage from "./pages/Gemini/MainPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/gemini",
+    element: (
+      <App>
+        <MainPage />
+      </App>
+    ),
+  },
+  {
     path: "*",
     element: (
       <App>
@@ -65,11 +75,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <PrimeReactProvider>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </PrimeReactProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <PrimeReactProvider>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </PrimeReactProvider>
+  // </React.StrictMode>
 );
