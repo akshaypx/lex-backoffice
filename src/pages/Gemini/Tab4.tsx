@@ -19,7 +19,7 @@ interface PredictionsEntity {
 const PROJECT_ID = "test1-ywpq";
 //gcloud auth print-access-token
 const ACCESS_TOKEN =
-  "ya29.a0AfB_byBRia0MllUJy-jODawrRgOcJGgRzIZBeeD3fKz5iD7u3XV7TaU9CWvxtWw1-Dt-x7awpxGfNHJJqtEVLOUPcqN9h9e6oBUTOtOD6r_bSfypam-Fhe6S77rxwQnC2BFuOD5NI3RQTaVkAcSH4OgxszI-kQCX6MFFM99ctsIfaCgYKAdsSARESFQHGX2Mi6w1KO_llNjzxjdckntDF-g0179";
+  "ya29.a0AfB_byB089RBQ7leThgQQXBTLR-PvqN7AqkJaS_hp7gYiBA0Th_BLz_6AMCRX7uFkYRn0QKnjT6OPR-ODKh-L-kNB_KUFxii7Vq106XkEcrCL-sJmZEJkPe0jAxDbu0rTjeFzHfQydMNpToU3NrceNSlzhs8uuc6xrXtYHsk7D11aCgYKAQQSARESFQHGX2MiCpqV6MbQybPXR7jgLh9IEg0179";
 
 const Tab4 = () => {
   const [prompt, setPrompt] = useState("");
@@ -28,16 +28,18 @@ const Tab4 = () => {
   const [isloading, setIsLoading] = useState(false);
   const toast = useRef<Toast>(null);
 
-  const showToast = () => {
+  const showToast = (msg: string) => {
     toast.current!.show({
       severity: "info",
       summary: "Info",
-      detail: "Message Content",
+      detail: msg,
     });
   };
 
   const fetchData = async () => {
+    console.log(count);
     try {
+      setImages([]);
       const response = await fetch(
         `https://us-central1-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/us-central1/publishers/google/models/imagegeneration:predict`,
         {
@@ -59,18 +61,22 @@ const Tab4 = () => {
         }
       );
       const result: Response = await response.json();
-      Array.from(result!.predictions!).map((data) =>
-        setImages((prevState) => [
-          ...prevState,
-          "data:" +
-            result!.predictions![0].mimeType +
-            ";base64," +
-            result!.predictions![0].bytesBase64Encoded,
-        ])
-      );
-    } catch (err) {
-      console.log(err);
-      showToast();
+      if (response.status === 200) {
+        console.log(result);
+        Array.from(result!.predictions!).map((data) =>
+          setImages((prevState) => [
+            ...prevState,
+            "data:" + data.mimeType + ";base64," + data.bytesBase64Encoded,
+          ])
+        );
+      } else {
+        const err: any = result;
+        showToast(err.error.message);
+        console.log("res");
+        console.log("result", result);
+      }
+    } catch (err: any) {
+      console.log("err", err);
     }
   };
 
